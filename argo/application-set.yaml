@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: fast-api
+  namespace: argocd
+spec:
+  generators:
+  - pullRequest:
+      github:
+        # The GitHub organization or user.
+        owner: marcelomanchester
+        # The Github repository
+        repo: feature-environments-argocd
+  template:
+    metadata:
+      name: 'fast-api-{{branch}}-{{number}}'
+    spec:
+      source:
+        repoURL: 'https://github.com/marcelomanchester/feature-environments-argocd.git'
+        targetRevision: '{{head_sha}}'
+        path: helm/
+        helm:
+          parameters:
+          - name: "image.tag"
+            value: "{{head_sha}}"
+          - name: "namespace"
+            value: 'fast-api-{{branch}}-{{number}}'
+      project: default
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true  
+        automated:
+          prune: true
+          selfHeal: true
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: default

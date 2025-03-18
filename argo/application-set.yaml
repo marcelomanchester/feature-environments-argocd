@@ -15,8 +15,8 @@ spec:
       name: 'fast-api-{{branch}}-{{number}}'
     spec:
       source:
-        repoURL: 'https://github.com/marcelomanchester/feature-environments-argocd.git'
-        targetRevision: '{{head_sha}}'
+        repoURL: 'git@github.com:marcelomanchester/feature-environments-argocd.git'
+        targetRevision: 'sha-{{head_sha}}'
         path: helm/
         helm:
           parameters:

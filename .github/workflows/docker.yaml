@@ -13,7 +13,7 @@ jobs:
 
       - name: Get Commit Hash
         run: |
-        echo ${{ github.ref_name }}
+        echo "${{ github.ref_name }}"
         echo "COMMIT_HASH=$(git rev-parse ${{ github.ref_name }})" >> $GITHUB_ENV
 
       - name: Log in to Docker Hub

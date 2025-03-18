@@ -11,9 +11,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Get Commit Hash
-        run: echo "COMMIT_HASH=$(git rev-parse ${{ github.ref_name }})" >> $GITHUB_ENV
-
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
@@ -22,8 +19,8 @@ jobs:
 
       - name: Build Docker Image with Commit Hash
         run: |
-          docker build -t devmarcelo/feature-environment-argocd:sha-${{ env.COMMIT_HASH }} .
+          docker build -t devmarcelo/feature-environment-argocd:sha-${{ env.GITHUB_SHA }} .
 
       - name: Push Docker Images
         run: |
-          docker push devmarcelo/feature-environment-argocd:sha-${{ env.COMMIT_HASH }}
+          docker push devmarcelo/feature-environment-argocd:sha-${{ env.GITHUB_SHA }}

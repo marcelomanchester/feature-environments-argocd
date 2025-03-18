@@ -1,0 +1,6 @@
+apiVersion: v2
+name: fast-api
+description: The helm chart for the fast-api
+type: application
+version: 0.1.0
+appVersion: "1.16.0"

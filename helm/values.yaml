@@ -1,0 +1,10 @@
+replicaCount: 1
+name: fast-api
+namespace: fast-api
+image:
+  tag: 'pr-1'
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080

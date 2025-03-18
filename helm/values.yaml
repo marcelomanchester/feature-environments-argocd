@@ -2,6 +2,7 @@ replicaCount: 1
 name: fast-api
 namespace: fast-api
 image:
+  name: fast-api
   tag: 'pr-1'
   pullPolicy: IfNotPresent
 service:

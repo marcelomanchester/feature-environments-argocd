@@ -7,9 +7,7 @@ spec:
   generators:
   - pullRequest:
       github:
-        # The GitHub organization or user.
         owner: marcelomanchester
-        # The Github repository
         repo: feature-environments-argocd
   template:
     metadata:

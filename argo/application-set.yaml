@@ -9,6 +9,7 @@ spec:
       github:
         owner: marcelomanchester
         repo: feature-environments-argocd
+      requeueAfterSeconds: 15
   template:
     metadata:
       name: 'fast-api-{{branch}}-{{number}}'

@@ -1,7 +1,7 @@
 name: Build and Push FastAPI Docker Image
 
 on:
-  pull_requests:
+  pull_request:
 
 jobs:
   build-and-push:

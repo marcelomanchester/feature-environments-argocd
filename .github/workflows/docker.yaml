@@ -24,8 +24,8 @@ jobs:
 
       - name: Build Docker Image with Commit Hash
         run: |
-          docker build -t devmarcelo/feature-environment-argocd:sha-${{ github.head_ref }} .
+          docker build -t devmarcelo/feature-environment-argocd:${{ github.head_ref }} .
 
       - name: Push Docker Images
         run: |
-          docker push devmarcelo/feature-environment-argocd:sha-${{ github.head_ref }}
+          docker push devmarcelo/feature-environment-argocd:${{ github.head_ref }}

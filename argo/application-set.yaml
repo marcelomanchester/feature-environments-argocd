@@ -16,12 +16,12 @@ spec:
     spec:
       source:
         repoURL: 'git@github.com:marcelomanchester/feature-environments-argocd.git'
-        targetRevision: 'sha-{{head_sha}}'
+        targetRevision: '{{head_sha}}'
         path: helm/
         helm:
           parameters:
           - name: "image.tag"
-            value: "sha-{{head_sha}}"
+            value: "{{branch}}"
           - name: "namespace"
             value: 'fast-api-{{branch}}-{{number}}'
       project: default

@@ -9,6 +9,9 @@ spec:
       github:
         owner: marcelomanchester
         repo: feature-environments-argocd
+        tokenRef:
+          secretName: github-token
+          key: token
       requeueAfterSeconds: 15
   template:
     metadata:
